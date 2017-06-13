@@ -1,0 +1,15 @@
+0.  :  a pneumoconiosis caused by inhalation of very fine silicate or quartz dust
+1.  getrusage stores the resource usage statistics for the calling process
+2.  16
+3.  Passing by reference avoids having to copy the data to the stack, and take up potentially unavailable memory.
+    In short, it's more effecient.
+4.  Main reads words by iterating, char by char, through the file passed in. If the char it's looking at (indicated
+    by c) is an alphabetical letter, or if it happens to be an apostrophe, that char is stored at the end of the word
+    in the variable WORD at position INDEX. Should the index ever become larger than the constant LENGTH, main will skip
+    past the rest of the word. If the char looked at is a number, again main will skip past the rest of the word. If
+    the char is not a letter, and not a number, the assumption is a word has been completed, and main goes on to check
+    if that word is stored in the dictionary. 
+5.  fscanf could potentially pick up numbers, or a word that is beyond the length of what we are capable of dealing with.
+6.  The variables were declared as constants to avoid the value passed via the pointer from being changed. Constant
+    tells the computer not to try changing the value pointed to. It would appear it's an extra level of safety in case
+    the programmer accidentally writes a function that tries to manipulate the value pointed to. 
