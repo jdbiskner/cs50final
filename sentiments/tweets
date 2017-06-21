@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+
+# Execute upon re-opening of terminal
+# export API_KEY=jMVbgriBLvDbb4lfvBy1TqM9Z
+# export API_SECRET=NqyFccfBYIlfvZkNkACUzLe0KzVw7eHTkQSQ1iubKBY6NS4Ll6
+
+import os
+import sys
+import helpers
+import nltk
+
+from analyzer import Analyzer
+from termcolor import colored
+
+def main():
+    
+    # ensure proper usage
+    if len(sys.argv) != 2:
+        sys.exit("Usage: ./tweets @screen_name")
+    
+    # instantiate analyzer
+    positives = os.path.join(sys.path[0], "positive-words.txt")
+    negatives = os.path.join(sys.path[0], "negative-words.txt")
+    analyzer = Analyzer(positives, negatives)
+    
+    # check for failure to get tweets
+    if helpers.get_user_timeline(sys.argv[1], 50) == None:
+        sys.exit("Unable to access Twitter user")
+    
+    # put the user's tweets into a list
+    tweets = helpers.get_user_timeline(sys.argv[1])
+    
+    # send tweets to analyzer
+    for tweet in tweets:
+        
+        # store tweet score
+        tweetscore = analyzer.analyze(tweet)
+        
+        # determine how to display tweetscore
+        if tweetscore > 0.0:
+            print(colored('{} {}'.format(tweetscore, tweet), "green"))
+        elif tweetscore < 0.0:
+            print(colored('{} {}'.format(tweetscore, tweet), "red"))
+        else:
+            print(colored('{} {}'.format(tweetscore, tweet), "yellow"))
+    
+if __name__ == "__main__":
+    main()
