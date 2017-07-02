@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    C$50 Finance
+{% endblock %}
+
+{% block main %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Shares</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{transaction.type}}</td>
+                <td>{{transaction.stock}}</td>
+                <td>{{transaction.price}}</td>
+                <td>{{transaction.shares}}</td>
+                <td>{{transaction.transaction_date}}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
