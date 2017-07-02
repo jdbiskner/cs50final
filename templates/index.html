@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    C$50 Finance
+{% endblock %}
+
+{% block main %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Shares</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+             <tr>
+                <td>CASH</td> 
+                <td colspan="3"></td>
+                <td>{{cash}}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{stock["stock"]}}</td>
+                <td>{{stock["name"]}}</td>
+                <td>{{stock["price"]}}</td>
+                <td>{{stock["shares"]}}</td>
+                <td>{{stock["total"]}}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
