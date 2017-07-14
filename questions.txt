@@ -1,0 +1,17 @@
+1.  The usuage of something like stdint.h is to define specifically how many bits a data type is going to take up. When implementing
+    a program across different types of computers, some will use one architecture (such as 32-bit) while others will use another (64-bit).
+    By defining exactly how many bits should be used for a data type, we avoid the computer on which the program is run changing the number of bits
+    associated with our data type.
+2.  Using things such as uint8_t define the exact number of bits that the type defined after that should use. 
+3.  BYTE = 1, DWORD = 4, LONG = 4, and WORD = 2.
+4.  The letters BM in ASCII are used to identify a BITMAP file. 
+5.  bfSize refers to the size in bytes of the BMP file in relation to other meta-data, while biSize refers to the bytes required for the 
+    data structure of the BMP.
+6.  If biHeight is negative, then the BMP image is read from the top down, starting in the upper, left-hand corner. 
+7.  biColor
+8.  fopen might return NULL if the file is not found.
+9.  We only want to read the number of bytes defined in the 2nd argument once, which is why 1 is always used for the third argument that
+    specifies the number of blocks of bytes to read at a time. 
+10. 0
+11. fseek moves the file pointer to a different location in the file, based on the input passed to it.
+12. SEEK_CUR tells fseek to move the file pointer in relation to its current position. 
