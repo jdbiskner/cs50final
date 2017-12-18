@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Intelligent Deduper
+{% endblock %}
+		
+{% block main %}
+ 
+	<div class='container-fluid'>
+		<div class="row" style="padding-top: 50px;">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<center>
+					<div class="panel panel-default">
+						<div class="panel-heading">Upload Family List</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data">
+									<input type = "file" name = "data_source" />
+									<p class="help-block">Example block-level help text here.</p>
+									<input type = "submit" class="btn btn-primary" value="Submit"/>
+								</form>
+							</div>
+						</div>
+					</div>
+				</center>
+			</div>
+			<div class="col-md-4"></div>							
+		</div>
+	</div>
+{% endblock %}

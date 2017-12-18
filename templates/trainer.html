@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Intelligent Deduper - Trainer
+{% endblock %}
+		
+{% block main %}
+
+    <div class="container-fluid" id="trainer_info">
+        <div class="row" style="padding-top: 50px;">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+					<div class="panel-heading">Begin Training</div>
+					<div class="panel-body">
+						<p>It's time to start training Intelligent Deduper to find duplicates in your data. 
+                        <br><br>
+                        Click <b>Begin Training</b> to get the first pair of records 
+                            that need to be labeled. In order to run the Deduper, ten matches and ten distinct records need to be identified. Use <b>Yes</b> to indicate a match and <b>No</b> to indicate a distinct pair.
+                        <br><br>
+                            When finished, click <b>Finished</b> to run the duplicate finder on your dataset.
+                        <br><br>
+                        If you're having trouble finding matches, keep labeling. The deduper process can be run if at least seventy-five distinct records are identified.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <center>
+                <button class="btn btn-primary" id="begin_training">Begin Training</button>
+                </center>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <div class="container-fluid trainer" style="padding-top: 50px;">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="row panel panel-default" style="padding: 10px 10px 1px;">
+                    <div class="row progress-labels">
+                        <div class="col-sm-6">Matches</div>
+                        <div class="col-sm-6" style="text-align: right;" id="matchesLabelCount">0 / 10</div>
+                    </div>
+                    <div class="progress">
+                        <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-blue" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="yesProgress"></div>
+                    </div>
+                    <div class="row progress-labels">
+                        <div class="col-sm-6">Distinct</div>
+                        <div class="col-sm-6" style="text-align: right;" id="distinctLabelCount">0 / 10</div>
+                    </div>
+                    <div class="progress">
+                        <div data-percentage="0%" style="width: 0%;" class="progress-bar progress-bar-red" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="noProgress"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <div class="container-fluid trainer">
+        <div class="row" style="padding-top: 10px;">
+            <div class="col-md-3" id="pairs"></div>
+            <div class="col-md-3">
+                <div class="panel panel-default" id="pair_record_0" style="padding: 5px;">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default" id="pair_record_1" style="padding: 5px;">
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style="display: flex; justify-content: space-between;">
+                <button class="btn btn-primary" id="markPairYes">Yes</button>
+                <button class="btn btn-primary" id="markPairNo">No</button>
+                <button class="btn btn-primary" id="markPairUnsure">Unsure</button>
+                <form action="http://localhost:5000/finish_training">
+                    <input type="submit" class="btn btn-primary" value="Finished" disabled="disabled" id="markFinish"/>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(".trainer").hide();
+    </script>
+
+
+
+
+
+
+    <script src="{{ url_for('static', filename='js/trainer_script.js') }}"></script>
+{% endblock %}

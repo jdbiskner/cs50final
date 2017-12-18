@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Intelligent Deduper
+{% endblock %}
+		
+{% block main %}
+	<div class='container-fluid'>
+		<div class="row" style="padding-top: 50px;">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+					<div class="panel panel-default">
+						<div class="panel-heading" style="text-align: center">How-To</div>
+						<div class="panel-body">
+                            <p>
+                                Intelligent Deduper requires a list of family records with the correct headings in order
+                                to properly work. From left to right the columns must match exactly the following:
+                                    <ul>
+                                        <li>FamilyDUID</li>
+                                        <li>LastName</li>
+                                        <li>FirstNames</li>
+                                        <li>PrimaryAddress1</li>
+                                        <li>Primary Address 2</li>
+                                        <li>PrimaryCity</li>
+                                        <li>PrimaryState</li>
+                                        <li>PrimaryPostalCode</li>
+                                        <li>OwnerOrganizationID</li>
+                                        <li>OwnerOrganizationName</li>
+                                        <li>Owner Organization City</li>
+                                    </ul>
+                                Once your import file is ready, go to the home page of Intelligent Deduper and upload the
+                                list.
+                                <br><br>
+                                After the file imports into the database you will be redirected to the training screen.
+                                Begin training Intelligent Deduper on what constitutes a duplicate record in your dataset.
+                                <br><br>
+                                Once enough possible matches have been indentified Intelligent Deduper can be run to search
+                                through and categorize possible duplicate records. Results can be downloaded once the process
+                                completes.
+                            </p>
+						</div>
+					</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+{% endblock %}

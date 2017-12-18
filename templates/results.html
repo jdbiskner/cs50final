@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Intelligent Deduper
+{% endblock %}
+		
+{% block main %}
+ 
+	<div class='container-fluid'>
+		<div class="row" style="padding-top: 50px;">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="panel panel-success">
+					<div class="panel-heading">Results Ready</div>
+					<div class="panel-body">
+                        <p>Your file has been processed and the results are ready.</p>
+                        <p>Click download to download a CSV output of potential duplicates.</p>
+                            <center>
+                                <a href="{{url_for('results_file')}}" class='btn btn-lg btn-primary'>Download</a>
+                            </center>
+                    </div>
+				</div>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+{% endblock %}

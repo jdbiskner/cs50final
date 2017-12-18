@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Intelligent Deduper
+{% endblock %}
+		
+{% block main %}
+	<div class='container-fluid'>
+		<div class="row" style="padding-top: 50px;">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+					<div class="panel panel-default">
+						<div class="panel-heading" style="text-align: center">About</div>
+						<div class="panel-body">
+							<p>
+							Intelligent Deduper was created to make finding duplicate records easier. Instead of
+                            comparing records using a direct comparison of two fields, Intelligent Deduper makes use of
+                            machine learning to recognize similar records. Users upload their data then train Intelligent Deduper
+                            on what pairs of records are considered duplicates. This allows differences due to misspellings, different
+                            naming conventions (Rd. versus Road) and nicknames are caught and considered duplicates.
+                            <br><br>
+                            All of the machine learning logic is done using the <a href="https://dedupe.io/developers/library/en/latest/">Dedupe Python API</a>.
+                            <br><br>
+                            This application was built for a final project in Harvard's introductory computer science
+                            course CS50x, offered free through <a href="https://www.edx.org/course/introduction-computer-science-harvardx-cs50x"> Edx.org</a>.
+							Special thanks is given to all CS50 staff and
+                            professor David Malan.
+                            </p>
+						</div>
+					</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+{% endblock %}
