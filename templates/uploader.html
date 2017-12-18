@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Intelligent Deduper
+{% endblock %}
+		
+{% block main %}
+	<div class='container-fluid'>
+		<div class="row" style="padding-top: 50px;">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<center>
+					<div class="panel panel-default">
+						<div class="panel-heading">Upload Family List</div>
+						<div class="panel-body">
+							<form action="{{ url_for('uploader') }}" method="post">	
+								<div class="form-group">
+									<input type="file" name="data_source">
+									<p class="help-block">Example block-level help text here.</p>
+								</div>
+								<button type="submit" class="btn btn-primary">Submit Button</button>
+							</form>
+						</div>
+					</div>
+				</center>
+			</div>
+			<div class="col-md-4"></div>							
+		</div>
+	</div>
+{% endblock %}

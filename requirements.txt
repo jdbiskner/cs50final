@@ -1,0 +1,5 @@
+numpy>=1.9
+dedupe
+flask
+Flask-JSGlue
+flask_session
